@@ -43,13 +43,21 @@ int main()
     mostrarArray(array, n);
     printf("\n");
     // elijo el tipo de orden
-    printf("Elija el tipo de orden:\n");
-    printf("1) Ascendente\n");
-    printf("2) Descendente\n");
-    printf("3) Valor absoluto ascendente\n");
-    printf("4) Valor absoluto descendente\n");
-    printf("> ");
-    scanf("%d", &opcion);
+    do
+    {
+        printf("Elija el tipo de orden:\n");
+        printf("1) Ascendente\n");
+        printf("2) Descendente\n");
+        printf("3) Valor absoluto ascendente\n");
+        printf("4) Valor absoluto descendente\n");
+        printf("> ");
+        scanf("%d", &opcion);
+        if ((opcion < 1) || (opcion > 4))
+        {
+            printf("La opcion: %d es incorrecta\n", opcion);
+            printf("Ingrese una opcion valida\n");
+        }
+    } while ((opcion < 1) || (opcion > 4));
     switch (opcion)
     {
     case 1:
