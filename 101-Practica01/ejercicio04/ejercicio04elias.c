@@ -49,5 +49,5 @@ int main(int argc, char *argv[])
 
 void emosion(int signal)
 {
-    printf("Recibida la senial SIGUSR1, la tengo al pedo jajaa \n");
+    printf("Recibida la senial SIGUSR1, la señal es: %d \n", signal);
 }
