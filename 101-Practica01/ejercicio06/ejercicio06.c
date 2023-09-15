@@ -26,26 +26,31 @@ int main(int argc, char *argv[])
     struct stat fileStat;    // Estructura para almacenar los datos del archivo
     char *path = argv[2];    // Ruta del directorio
 
+    // si no se pasan los argumentos correctos
     if (argc != 3)
     {
         printf("Uso: %s <opción> <directorio>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
+    // si no se puede abrir el directorio
     if ((dir = opendir(path)) == NULL)
     {
         perror("opendir");
         exit(EXIT_FAILURE);
     }
 
+    // según la opción
     switch (argv[1][1])
     {
+        // listar todos los archivos
         case 'e':
             while ((ent = readdir(dir)) != NULL)
             {
                 printf("%s\n", ent->d_name);
             }
             break;
+        // listar solo los directorios
         case 'd':
             while ((ent = readdir(dir)) != NULL)
             {
@@ -55,6 +60,7 @@ int main(int argc, char *argv[])
                 }
             }
             break;
+        // listar el número de i-nodo y el nombre de los archivos
         case 'i':
             while ((ent = readdir(dir)) != NULL)
             {
