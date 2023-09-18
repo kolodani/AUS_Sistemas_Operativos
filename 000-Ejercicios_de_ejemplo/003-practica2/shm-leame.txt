@@ -1,0 +1,5 @@
+shm.c - Programa que crea un segmento de share memory para uso propio
+
+shm-server.c - Programa que crea un segmento de share memory y escribe datos, aguarda a que un cliente lea esta información
+
+shm-client.c - Programa que lee información generada por el server, emplea el mismo segmento de share memory

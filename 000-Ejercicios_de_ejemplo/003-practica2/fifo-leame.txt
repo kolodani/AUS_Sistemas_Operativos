@@ -1,0 +1,22 @@
+El programa fifo-creator.c crea un FIFO.
+El progrma fifo-writer.c escribe en un FIFO una cadena.
+El programa fifo-reader.c la lee.
+
+Compilacion:
+$ gcc -W -Wall fifo-creator.c -o fcreator
+$ gcc -W -Wall fifo-reader.c -o fr
+$ gcc -W -Wall fifo-writer.c -o fw
+
+Ejecucion:
+$ ./fcreator fifo_path
+
+(!) Hacer un 'ls -l' del directorio 'path' para observar el FIFO creado.
+
+Poner en ejecución al lector
+$ ./fr fifo_path
+
+En dos o tres terminales diferentes ejecutar
+$ ./fw fifo_path
+
+En la terminal donde se ejecuto el lector iran apareciendo mensajes
+enviados por los escritores.

@@ -1,0 +1,10 @@
+El progrma mmap-writer.c escribe en un mapeo de memoria un entero.
+El programa mmap-reader.c leera desde alli.
+
+Compilacion:
+$ gcc -W -Wall mmap-writer.c -o writer
+$ gcc -W -Wall mmap-reader.c -o reader
+
+Ejecucion:
+$ ./writer testfile
+$ ./reader testfile
