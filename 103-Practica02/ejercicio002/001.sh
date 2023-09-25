@@ -20,7 +20,7 @@ do
         if [ $valido -eq 0 ]
         then
             diaDeLaSemana=$(date -d $fecha +"%A")
-            echo $diaDeLaSemana
+            echo "Usted nacio un dia: $diaDeLaSemana"
             CONDICION=false
         else
             echo "Fecha no valida"
