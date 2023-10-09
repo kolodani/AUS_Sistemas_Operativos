@@ -1,0 +1,23 @@
+2)
+a)  Escriba el contenido de los elementos del vector argv que recibe prog1 y los que recibe prog2.
+A - El vector argv que recibe prog1 contiene el nombre del programa y el argumento que se le pasa.
+    EL vector argv que recibe prog2 es el mismo que el del prog1, pero antes de pasarselo a el prog2
+    se le cambia el primer argumento osea el argv[0] por el nombre del programa prog2.
+
+b)  ¿Que PID tiene el proceso que ejecuta prog1.c?¿Y el de prog2.c?
+B - En este caso puntual los PID son 7565 tanto para prog1 como para prog2.
+    Si ejecuto esto de nuevo el numero cambia, pero siempre es el mismo para los dos programas.
+    Esto se debe a que se sustituye un proceso por otro con el execv.
+    Lo que esto provoca es que el proceso que ejecuta prog1.c se termine y
+    se cree uno nuevo que ejecuta prog2.c manteniendo el mismo PID.
+
+c)  ¿Que tamaño de memoria ocupa el proceso, segun ejecute prog1 o prog2?
+C - El tamaño de memoria que ocupa el prog1 cuando ejecuto el prog1 es de 617 bytes y
+    el prog2 es de 1075 bytes.
+    Si ejecuto directamente el prog2 el tamaño de memoria es de 1075 bytes.
+    Se ve aqui que el proceso prog2 ocupa lo mismo si es ejecutado por si mismo que
+    por el prog1 por el commando execv.
+
+d)  Modifique el programa prog1.c para introducir codigo inalcanzable (p.e. printf("Hola\n");)
+    y compruebe que efectivamente no se alcanza. ¿La ultima linea del prog1 (la que dice exit(0);),
+    puede llegar a ejecutarse alguna vez?
