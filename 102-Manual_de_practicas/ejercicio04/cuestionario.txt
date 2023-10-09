@@ -1,0 +1,24 @@
+4)
+a)  La expresion:
+    fd1 = creat ("ficheroA", 0666)
+    Crea un fichero, le da nombre, le asigna permisos, y asigna una variable entera,
+    fd1, que es el "file descriptor" utilizado por el programa para manipular el fichero.
+    ¿Que significado tiene el empleo de la constante 0666?
+    ¿Que permisos tienen los dos ficheros, ficheroA y ficheroB, tras la ejecucion del programa?
+    ¿Cual es la explicacion de tal diferencia?
+A - La constante 0666 es un numero octal que representa los permisos de lectura y escritura
+    para el propietario, grupo y otros.
+    Los ficheros ficheroA y ficheroB tienen los permisos de escritura y lectura para el propietario
+    pero solo de lectura para el grupo y otros.
+    La diferencia es que le asigno permisos de escritura y lectura para todos pero solo lo tienen
+    para el propietario. Grupos y otros solo tienen permisos de lectura. Esto sucede porque
+    la mascara de creacion de ficheros es 0666 y se le aplica una mascara de 0222.
+
+b)  La ejecucion concurrente de las escrituras de los procesos padre e hijo da lugar a que
+    las cadenas "*********" y "----------" aparezcan alternadas en los ficheros resultantes.
+    Consiga, mediante la utilizacion de la funcion sleep, que la frecuencia a la que el
+    proceso hijo escribe en los ficheros sea menor que la frecuencia de escritura del proceso padre
+    (es decir, que realice menos escrituras por unidad de tiempo).
+    ¿En que afecta eso al contenido de los ficheros?
+B - Para esto voy a hacer que el proceso hijo descanse con un tiempo y el proceso padre con otro.
+    Esto va a cambiar la salida y por ende los archivos cambiaran su contenido.

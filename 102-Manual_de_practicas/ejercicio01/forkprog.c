@@ -7,7 +7,7 @@ int main()
 {
     pid_t rf;
     int varfork = 10; // cambio hecho por la consigna h)
-    int i = 0; // cambio hecho por la consigna h)
+    int i = 0;        // cambio hecho por la consigna h)
     rf = fork();
     switch (rf)
     {
@@ -16,7 +16,7 @@ int main()
         break;
     case 0:
         sleep(1); // cambio hecho por la consigna g)
-        printf ("Soy el hijo, mi PID es %d y mi PPID es %d \n", getpid(), getppid());
+        printf("Soy el hijo, mi PID es %d y mi PPID es %d \n", getpid(), getppid());
         for (i = 0; i < 10; i++) // cambio hecho por la consigna h)
         {
             varfork++;
@@ -34,5 +34,5 @@ int main()
     }
     printf("Soy el proceso %d y mi variable varfork es %d \n", getpid(), varfork); // cambio hecho por la consigna h)
     printf("Final de ejecucion de %d \n", getpid());
-    exit (0);
+    exit(0);
 }
