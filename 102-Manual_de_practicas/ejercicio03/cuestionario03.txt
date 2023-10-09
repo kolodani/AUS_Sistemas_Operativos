@@ -1,0 +1,12 @@
+3)
+a)  ¿Las variables enteras i y j del proceso padre son las mismas que las del proceso hijo?
+A - Las variables j son las mismas, pero las variables i son diferentes.
+    Lo que sucedio es que en el proceso padre la variable i es inicializada en 0,
+    y en el proceso hijo es inicializada en 1.
+    A cada una se le suma 2, por eso el proceso padre da numeros impares
+    y el proceso hijo da numeros pares.
+
+b)  ¿Que cambios deberian realizarse en el codigo para que ambos procesos partieran
+    de igual valor de la variable entera i, y ademas un proceso realizase su cuenta
+    de uno a uno y el otro proceso de dos en dos? Editar el programa, compilarlo y
+    comprobar su ejecucion.
