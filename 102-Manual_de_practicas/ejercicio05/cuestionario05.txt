@@ -1,0 +1,12 @@
+5)
+a)  Modifique el codigo del programa espe1.c para que el proceso padre imprima el
+    mensaje finalizacion de su ejecucion 10 segundos mas tarde que el proceso hijo.
+
+b)  ¿Cual es el PPID del proceso hijo, una vez el padre ha finalizado? ¿Por que?
+B - En este caso el programa muestra que el PPID del proceso hijo es el PID del padre.
+    Pero cuando se abre la terminal y se ejecuta el comando ps -ef | grep espe1
+    se puede ver que el PPID del proceso hijo es el PID del proceso padre del padre.
+    En este caso como se ejecuto el programa desde la terminal zsh, el PPID del proceso
+    padre es el PID del proceso zsh.
+    y luego que el proceso padre termina pero el hijo sigue en funcionamiento, el PPID
+    del proceso hijo pasa a ser el PID de la terminal zsh.
