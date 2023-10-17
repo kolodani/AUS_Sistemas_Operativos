@@ -24,3 +24,5 @@ else
 fi
 
 echo "La cantidad de argumentos recibidos fue: $i"
+
+exit 0
