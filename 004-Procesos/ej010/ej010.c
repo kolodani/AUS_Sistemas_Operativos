@@ -8,7 +8,7 @@
 int main()
 {
     pid_t pid_hijo;
-    int *status_hijo;
+    int* status_hijo;
 
     pid_hijo = fork();
 
@@ -36,7 +36,7 @@ int main()
         sleep(5);
         while (i++ < 120)
         {
-            printf(stdout, "%d - ", i++);
+            fprintf(stdout, "%d - ", i++);
             sleep(1);
         }
         printf("Hijo termina normalmente\n");

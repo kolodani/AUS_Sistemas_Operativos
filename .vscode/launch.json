@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/kolodani/Documents/Repositorios/AUS_Sistemas_Operativos/002-Llamadas_al_sistema/ej002",
-      "program": "/home/kolodani/Documents/Repositorios/AUS_Sistemas_Operativos/002-Llamadas_al_sistema/ej002/build/Debug/outDebug",
+      "cwd": "/home/kolodani/Documents/Repositorios/AUS_Sistemas_Operativos/004-Procesos/ej010",
+      "program": "/home/kolodani/Documents/Repositorios/AUS_Sistemas_Operativos/004-Procesos/ej010/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
