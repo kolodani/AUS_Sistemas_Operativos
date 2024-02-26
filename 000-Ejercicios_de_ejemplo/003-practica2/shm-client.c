@@ -9,31 +9,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
- 
-#define SHMSZ     27
- 
+
+#define SHMSZ 27
+
 int main()
 {
     int shmid;
     key_t key;
     char *shm, *s;
- 
+
     /* We need to get the segment named
      * "5678", created by the server. */
     key = 5678;
- 
+
     /* Locate the segment. */
-    if ((shmid = shmget(key, SHMSZ, 0666)) < 0) {
+    if ((shmid = shmget(key, SHMSZ, 0666)) < 0)
+    {
         perror("shmget");
         exit(1);
     }
- 
+
     /* Now we attach the segment to our data space. */
-    if ((shm = shmat(shmid, NULL, 0)) == (char *) -1) {
+    if ((shm = shmat(shmid, NULL, 0)) == (char *)-1)
+    {
         perror("shmat");
         exit(1);
     }
-    
+
     printf("In 10 seconds I read the content\n");
     fflush(stdout);
     sleep(10);
@@ -43,13 +45,13 @@ int main()
     for (s = shm; *s != (int)NULL; s++)
         putchar(*s);
     putchar('\n');
- 
+
     /* Finally, change the first character of the
      * segment to '*', indicating we have read the segment.
      */
     *shm = '*';
-    
+
     shmdt(shm);
- 
+
     exit(0);
 }

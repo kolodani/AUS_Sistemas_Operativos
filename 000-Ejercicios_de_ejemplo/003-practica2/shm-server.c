@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SHMSZ     27
+#define SHMSZ 27
 
 int main()
 {
@@ -24,13 +24,15 @@ int main()
     key = 5678;
 
     /* Create the segment. */
-    if ((shmid = shmget(key, SHMSZ, IPC_CREAT | 0666)) < 0) {
+    if ((shmid = shmget(key, SHMSZ, IPC_CREAT | 0666)) < 0)
+    {
         perror("shmget");
         exit(1);
     }
 
     /* Now we attach the segment to our data space */
-    if ((shm = shmat(shmid, NULL, 0)) == (char *) -1) {
+    if ((shm = shmat(shmid, NULL, 0)) == (char *)-1)
+    {
         perror("shmat");
         exit(1);
     }
@@ -46,12 +48,13 @@ int main()
      * to '*', indicating that it has read what we put there. */
     printf("Waiting for client ");
     fflush(stdout);
-    while (*shm != '*') {
+    while (*shm != '*')
+    {
         printf(". ");
         fflush(stdout);
         sleep(1);
     }
- 
+
     /* Delete shared memory segment */
     shmctl(shmid, IPC_RMID, NULL);
 

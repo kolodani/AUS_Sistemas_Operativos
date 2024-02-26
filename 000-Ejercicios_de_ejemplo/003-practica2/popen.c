@@ -1,10 +1,11 @@
-//Realiza lo mismo que el programa dup2.c, pero aqui se utiliza
-//popen
+// Realiza lo mismo que el programa dup2.c, pero aqui se utiliza
+// popen
 #include <stdio.h>
 #include <unistd.h>
 
-int main () {
-    FILE* stream = popen("sort", "w");
+int main()
+{
+    FILE *stream = popen("sort", "w");
     fprintf(stream, "1 - para todos y todos para uno.\n");
     fprintf(stream, "3 - tristes tigres.\n");
     fprintf(stream, "2 - horas y media.\n");
@@ -13,4 +14,3 @@ int main () {
 
     return pclose(stream);
 }
-
