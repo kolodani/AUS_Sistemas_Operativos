@@ -6,6 +6,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <linux/limits.h>
 
 int main(int argc, char const *argv[])
 {
