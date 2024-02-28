@@ -7,55 +7,58 @@
  *  El segundo hijo deberá recibir una señal SIGUSR1 y mediante un handler emitirá por pantalla el mensaje “Recibida la
  *  señal SIGUSR1” y luego finalizará con _exit().
  *  Finalmente el proceso padre mostrará por pantalla su propio PID y finalizará.
-*/
+ */
 
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <signal.h>
 
-int main()
+#define CHILD_PID 0
+#define MES 1
+#define ANIO 2
+
+void emosion(int);
+
+int main(int argc, char *argv[])
 {
-    // variables
-    pid_t pid1, pid2;
-    int status1, status2;
+    if (argc != 3)
+        return 1;
 
-    // creacion de procesos hijos
-    pid1 = fork();
+    pid_t pid_holder;
+    char *mes = argv[MES];
+    char *anio = argv[ANIO];
+    char cal[] = "/usr/bin/cal";
+    char *nargv[] = {cal, mes, anio, NULL};
 
-    // proceso hijo 1
-    if (pid1 == 0)
+    pid_holder = fork();
+
+    if (pid_holder == CHILD_PID)
     {
-        // ejecucion de comando
-        execl("/usr/bin/cal", "cal", "10", "2020", NULL);
+        execve(cal, nargv, NULL);
     }
-    // proceso padre
     else
     {
-        // creacion de proceso hijo 2
-        pid2 = fork();
-
-        // proceso hijo 2
-        if (pid2 == 0)
-        {
-            // espera de señal
-            pause();
-            // mensaje de señal recibida
-            printf("Recibida la señal SIGUSR1\n");
-            // finalizacion del proceso
-            _exit(0);
-        }
-        // proceso padre
-        else
-        {
-            // espera de procesos hijos
-            waitpid(pid1, &status1, 0);
-            printf("Hijo %d finalizó\n", pid1);
-            waitpid(pid2, &status2, 0);
-            printf("Hijo %d finalizó\n", pid2);
-            // mensaje de finalizacion del proceso padre
-            printf("Proceso padre finalizó\n");
-        }
+        printf("Esperando ... por mi hijo %d :c\n", pid_holder);
+        wait(&pid_holder);
+    }
+    pid_holder = fork();
+    if (pid_holder == CHILD_PID)
+    {
+        signal(SIGUSR1, emosion);
+        pause();
+        _exit(0);
+    }
+    else
+    {
+        printf("Mandale un SIGUSR1(10) a este %d \n", pid_holder);
+        wait(&pid_holder);
     }
 
     return 0;
+}
+
+void emosion(int signal)
+{
+    printf("Recibida la senial SIGUSR1, la señal es: %d \n", signal);
 }
